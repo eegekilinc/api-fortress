@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "C:\\Users\\Enes Deniz\\Desktop\\api-fortress\\.venv\\Scripts\\python.exe",
+  "python.analysis.extraPaths": ["./"]
+}
