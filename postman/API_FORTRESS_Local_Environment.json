@@ -1,0 +1,34 @@
+{
+	"id": "84b2e04a-2301-4cf8-940f-d70ced9cd8cd",
+	"name": "API Fortress Local",
+	"values": [
+		{
+			"key": "insecure_base_url",
+			"value": "insecure_base_url",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_base_url",
+			"value": "secure_base_url",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "insecure_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-04-02T02:28:14.767Z",
+	"_postman_exported_using": "Postman/12.4.3"
+}

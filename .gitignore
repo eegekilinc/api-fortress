@@ -1,0 +1,44 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Node / Vite
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# SQLite / local DB
+data/
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & caches
+*.log
+npm-debug.log*
+.npm
+.cache/

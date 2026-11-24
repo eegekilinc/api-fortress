@@ -1,0 +1,471 @@
+{
+  "info": {
+    "_postman_id": "0d524f25-ca36-4db6-a699-a0a642f014a7",
+    "name": "API Fortress",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53692395",
+    "_collection_link": "https://go.postman.co/collection/53692395-0d524f25-ca36-4db6-a699-a0a642f014a7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "api_insecure",
+      "item": [
+        {
+          "name": "Delete Another User - Insecure",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{insecure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{insecure_base_url}}/users/3",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Logic Flaw - Insecure",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"mass_postman@test.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{insecure_base_url}}/auth/login",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health Insecure",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{insecure_base_url}}/health",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"postman@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{insecure_base_url}}/auth/register",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"postman@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{insecure_base_url}}/auth/login",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Users Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{insecure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{insecure_base_url}}/users/me",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Admin Mass Assignment - Insecure",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"mass_postman@test.com\",\r\n  \"password\": \"123456\",\r\n  \"is_admin\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{insecure_base_url}}/auth/register",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Backdoor - Insecure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Magic-World",
+                "value": "abracadabra",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"mass_postman@test.com\",\r\n  \"password\": \"yanlis\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{insecure_base_url}}/auth/login",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Victim - Insecure",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "View Another User - Insecure",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{insecure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{insecure_base_url}}/users/2",
+              "host": [
+                "{{insecure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "api_secure",
+      "item": [
+        {
+          "name": "Register User - Secure",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"secure_postman@test.com\",\r\n  \"password\": \"123456\",\r\n  \"is_admin\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{secure_base_url}}/auth/register",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Normal - Secure",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let jsonData = pm.response.json();\r",
+                  "if (jsonData.access_token) {\r",
+                  "    pm.environment.set(\"secure_token\", jsonData.access_token);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"secure_postman@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{secure_base_url}}/auth/login",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Backdoor Should Fail - Secure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Magic-World",
+                "value": "abracadabra",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"secure_postman@test.com\",\r\n  \"password\": \"yanlis\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{secure_base_url}}/auth/login",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Without Password Should Fail - Secure",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"secure_postman@test.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{secure_base_url}}/auth/login",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Users Me - Secure",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{secure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{secure_base_url}}/users/me",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View Another User Should Fail - Secure",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{secure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{secure_base_url}}/users/7",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Another User Should Fail - Secure",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{insecure_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{secure_base_url}}/users/5",
+              "host": [
+                "{{secure_base_url}}"
+              ],
+              "path": [
+                "users",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --fortress-scroll-track: #0c0f14;
+    --fortress-scroll-thumb: #1a2230;
+    --fortress-scroll-thumb-hover: #243041;
+    --fortress-scroll-thumb-active: #2d3a4d;
+    --fortress-scroll-terminal-track: #000000;
+    --fortress-scroll-terminal-thumb: rgba(16, 185, 129, 0.16);
+    --fortress-scroll-terminal-thumb-hover: rgba(52, 211, 153, 0.26);
+  }
+
+  html {
+    @apply scroll-smooth;
+    scrollbar-color: var(--fortress-scroll-thumb) var(--fortress-scroll-track);
+    scrollbar-width: thin;
+  }
+
+  html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--fortress-scroll-track);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: var(--fortress-scroll-thumb);
+    border: 2px solid var(--fortress-scroll-track);
+    border-radius: 5px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--fortress-scroll-thumb-hover);
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden bg-fortress-950 text-slate-100;
+    scrollbar-gutter: stable;
+  }
+}
+
+@layer components {
+  /* Dekoratif gradient / blur taşmalarını yuvarlatılmış köşelerde keser */
+  .fortress-clip {
+    @apply overflow-hidden;
+  }
+
+  /* Dikey kaydırma — modal, panel, liste */
+  .fortress-scroll {
+    @apply overflow-y-auto overflow-x-hidden overscroll-y-contain;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fortress-scroll-thumb) var(--fortress-scroll-track);
+  }
+
+  .fortress-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .fortress-scroll::-webkit-scrollbar-track {
+    background: var(--fortress-scroll-track);
+    border-radius: 4px;
+  }
+
+  .fortress-scroll::-webkit-scrollbar-thumb {
+    background: var(--fortress-scroll-thumb);
+    border: 2px solid var(--fortress-scroll-track);
+    border-radius: 4px;
+  }
+
+  .fortress-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--fortress-scroll-thumb-hover);
+  }
+
+  .fortress-scroll::-webkit-scrollbar-thumb:active {
+    background: var(--fortress-scroll-thumb-active);
+  }
+
+  /* Kod / örnek istek blokları — her iki eksen */
+  .fortress-scroll-both {
+    @apply overflow-auto overscroll-contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fortress-scroll-thumb) var(--fortress-scroll-track);
+  }
+
+  .fortress-scroll-both::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .fortress-scroll-both::-webkit-scrollbar-track {
+    background: var(--fortress-scroll-track);
+    border-radius: 4px;
+  }
+
+  .fortress-scroll-both::-webkit-scrollbar-thumb {
+    background: var(--fortress-scroll-thumb);
+    border: 2px solid var(--fortress-scroll-track);
+    border-radius: 4px;
+  }
+
+  .fortress-scroll-both::-webkit-scrollbar-thumb:hover {
+    background: var(--fortress-scroll-thumb-hover);
+  }
+
+  /* Terminal çıktısı — emerald vurgulu ince kaydırma */
+  .fortress-scroll-terminal {
+    @apply overflow-y-auto overflow-x-hidden overscroll-y-contain;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fortress-scroll-terminal-thumb) var(--fortress-scroll-terminal-track);
+  }
+
+  .fortress-scroll-terminal::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .fortress-scroll-terminal::-webkit-scrollbar-track {
+    background: var(--fortress-scroll-terminal-track);
+    border-radius: 3px;
+  }
+
+  .fortress-scroll-terminal::-webkit-scrollbar-thumb {
+    background: var(--fortress-scroll-terminal-thumb);
+    border-radius: 3px;
+  }
+
+  .fortress-scroll-terminal::-webkit-scrollbar-thumb:hover {
+    background: var(--fortress-scroll-terminal-thumb-hover);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

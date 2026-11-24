@@ -1,0 +1,46 @@
+services:
+  api_insecure:
+    build:
+      context: .
+      dockerfile: services/api_insecure/Dockerfile
+    container_name: api-fortress-api-insecure
+    ports:
+      - "5001:5001"
+    environment:
+      FLASK_APP: services.api_insecure.app:app
+      PYTHONPATH: /app
+      DATABASE_URL: sqlite:////app/instance/app.db
+    volumes:
+      - ./data/insecure:/app/instance
+    command: flask run --host=0.0.0.0 --port=5001
+
+  api_secure:
+    build:
+      context: .
+      dockerfile: services/api_secure/Dockerfile
+    container_name: api-fortress-api-secure
+    ports:
+      - "5002:5002"
+    environment:
+      FLASK_APP: services.api_secure.app:app
+      PYTHONPATH: /app
+      DATABASE_URL: sqlite:////app/instance/app.db
+    volumes:
+      - ./data/secure:/app/instance
+    command: flask run --host=0.0.0.0 --port=5002
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: api-fortress-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_INSECURE_URL: http://localhost:5001
+      VITE_API_SECURE_URL: http://localhost:5002
+    depends_on:
+      api_insecure:
+        condition: service_started
+      api_secure:
+        condition: service_started

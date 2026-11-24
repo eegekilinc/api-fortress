@@ -1,0 +1,33 @@
+# Version control
+.git
+.github
+
+# Dependencies & frontend build (largest contexts)
+**/node_modules
+frontend/node_modules
+frontend/dist
+node_modules
+dist
+
+# Python
+**/__pycache__
+*.pyc
+*.py[cod]
+.venv
+venv
+
+# Local DB & secrets (do not bake into images)
+data/
+*.db
+.env
+frontend/.env
+
+# IDE & tooling metadata
+.idea
+.vscode
+
+# Test / type caches (not needed for runtime images)
+.pytest_cache
+.mypy_cache
+.coverage
+htmlcov
